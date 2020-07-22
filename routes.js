@@ -3,7 +3,7 @@ const requestHandler = (req,res) => {
     const url = req.url;
     const method = req.method;
   if (url === "/") {
-    console.log("you are on rooot");
+    console.log("you are on t");
   } else if (url === "/message" && method === "POST") {
     console.log('you are on messages')
   }
