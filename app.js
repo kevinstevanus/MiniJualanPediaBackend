@@ -5,7 +5,7 @@ const db = require("./util/database");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/shop");
 
-db.query("SELECT NOW()").then(function (result) {
+db.query("SELECT * FROM USERS").then(function (result) {
   console.log(result);
 });
 
