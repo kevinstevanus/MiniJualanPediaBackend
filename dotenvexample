@@ -1,0 +1,14 @@
+#user,pass utk CLI sql server
+# Postgres Live Server
+DB_HOST=dbpostgres
+DB_DRIVER=postgres
+DB_USER=yourusername
+DB_PASSWORD=yourpassword
+DB_NAME=minipedia
+DB_PORT=5432
+
+
+#username dan passsword di "phpmyadmin"nya
+# Used by pgadmin service 
+PGADMIN_DEFAULT_EMAIL=live@admin.com
+PGADMIN_DEFAULT_PASSWORD=password

@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  #untuk database
+  dbpostgres:
+    image: postgres:latest
+    container_name: dbpostgres
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/createtable.sql:/docker-entrypoint-initdb.d/1create.sql #this is the script to create the db
+      #- ./db/inserttable.sql:/docker-entrypoint-initdb.d/2insert.sql #this one for inserting
+      # - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql #running the script so db already installed when server is up
+      #- dbpostgres:/var/lib/postgresql/data
+    networks:
+      - minipedia
+
+  #untuk interface postgres
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    depends_on:
+      - dbpostgres
+    ports:
+      - "5050:80"
+    networks:
+      - minipedia
+    restart: unless-stopped
+    #untuk volume
+volumes:
+  api:
+  dbpostgres:
+#jembatan antara db dan software
+networks:
+  minipedia:
+    driver: bridge
