@@ -1,9 +1,14 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
-
+const db = require("./util/database");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/shop");
+
+db.query("SELECT NOW()").then(function (result) {
+  console.log(result);
+});
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/admin", adminRoutes);
 app.use(userRoutes);
