@@ -4,10 +4,23 @@ const app = express();
 const db = require("./util/database");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/shop");
+const test = require("./models/product");
+// db.query("SELECT * FROM USERS")
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
-db.query("SELECT * FROM USERS").then(function (result) {
-  console.log(result);
-});
+test
+  .fetchAll()
+  .then((result) => {
+    console.log(result.rows[1]);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/admin", adminRoutes);
