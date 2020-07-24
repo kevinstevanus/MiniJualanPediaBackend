@@ -1,0 +1,10 @@
+- ada auth JWT
+- buat sistem cookies dan cache 
+- ada list product di halaman admin 
+- user bisa login
+- bisa kirim email
+- user punya wishlist
+- terdapat validasi input
+- pagination
+- websocket
+- testing
