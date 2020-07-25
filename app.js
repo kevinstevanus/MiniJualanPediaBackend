@@ -5,6 +5,7 @@ const db = require("./util/database");
 const adminRoutes = require("./routes/admin");
 const userRoutes = require("./routes/shop");
 const test = require("./models/product");
+const dummyRoutes = require("./routes/dummyroutes");
 // db.query("SELECT * FROM USERS")
 //   .then((result) => {
 //     console.log(result);
@@ -23,6 +24,7 @@ test
   });
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(dummyRoutes);
 app.use("/admin", adminRoutes);
 app.use(userRoutes);
 app.use((req, res, next) => {

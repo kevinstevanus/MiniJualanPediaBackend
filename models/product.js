@@ -12,7 +12,7 @@ module.exports = class Product {
   save() {}
 
   static fetchAll() {
-    return db.query("SELECT * FROM USERS");
+    return db.query("SELECT * FROM PRODUK");
   }
 
   static deleteById(id) {}
