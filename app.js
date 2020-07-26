@@ -14,14 +14,14 @@ const dummyRoutes = require("./routes/dummyroutes");
 //     console.log(err);
 //   });
 
-test
-  .fetchAll()
-  .then((result) => {
-    console.log(result.rows[1]);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// test
+//   .fetchAll()
+//   .then((result) => {
+//     console.log(result.rows[1]);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(dummyRoutes);

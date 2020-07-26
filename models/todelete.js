@@ -1,10 +1,7 @@
 const db = require("../util/database");
 
-module.exports = class todelete {
+module.exports = class toDelete {
   hellothere() {
-    const json = '{"result":true, "count":42}';
-    const obj = JSON.parse(json);
-
-    return obj;
+    db.query("INSERT INTO USERS(USERNAME) VALUES('kev')");
   }
 };
